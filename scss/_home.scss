@@ -1,0 +1,29 @@
+header {
+    height: 300px;
+    background: #af7777;
+    position: fixed;
+    top: 0;
+    width:  100%;
+}
+
+.edito {
+    margin-top: 300px;
+    background: #FFF;
+    position: relative;
+}
+
+footer {
+    background: #fef581;
+    height: 300px;
+    position: relative;
+}
+
+.menu {
+    width: 200px;
+    background: #2c3140;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 999;
+}
