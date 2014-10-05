@@ -1,34 +1,95 @@
-module.exports = function(grunt) {
-  grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
+module.exports = function (grunt) {
 
-    sass: {
-      options: {
-        includePaths: ['bower_components/foundation/scss']
-      },
-      dist: {
-        options: {
-          outputStyle: 'compressed'
+    require('load-grunt-tasks')(grunt);
+
+    grunt.initConfig({
+        pkg: grunt.file.readJSON('package.json'),
+
+        sass: {
+            options: {
+                includePaths: ['bower_components/foundation/scss']
+            },
+            dist: {
+                options: {
+                    outputStyle: 'compressed'
+                },
+                files: {
+                    'app/css/app.css': 'app/scss/app.scss'
+                }
+            }
         },
-        files: {
-          'css/app.css': 'scss/app.scss'
+
+
+        connect: {
+            server: {
+                options: {
+                    livereload: true,
+                    base: 'app/',
+                    port: 9000,
+                    open: true
+                }
+            },
+            livereload: {
+                options: {
+                    middleware: function(connect) {
+                        return [
+                            connect.static('app/')
+                        ];
+                    }
+                }
+            }
+        },
+
+        watch: {
+            grunt: { files: ['Gruntfile.js'] },
+
+            js: {
+                files: 'app/js/*.js',
+                tasks: ['jshint', 'uglify'],
+                options: {
+                    spawn: false,
+                    livereload: true
+                }
+            },
+
+            images: {
+              files: 'app/images/*.png',
+                options: {
+                    livereload: true
+                }
+            },
+
+            sass: {
+                files: 'app/scss/**/*.scss',
+                tasks: ['sass'],
+                options: {
+                    spawn: false,
+                    livereload: true
+                }
+            }
+        },
+
+        jshint: {
+            all: ['app/js/*.js']
+        },
+
+        uglify: {
+            dist: {
+                files: {
+                    'app/js/min/all.js': ['app/js/*.js']
+                }
+            }
         }
-      }
-    },
 
-    watch: {
-      grunt: { files: ['Gruntfile.js'] },
+    });
 
-      sass: {
-        files: 'scss/**/*.scss',
-        tasks: ['sass']
-      }
-    }
-  });
 
-  grunt.loadNpmTasks('grunt-sass');
-  grunt.loadNpmTasks('grunt-contrib-watch');
+    // Creates the `server` task
+    grunt.registerTask('serve', [
+        'connect',
+        'watch'
+    ]);
 
-  grunt.registerTask('build', ['sass']);
-  grunt.registerTask('default', ['build','watch']);
+    grunt.registerTask('build', ['sass']);
+    grunt.registerTask('default', ['build', 'jshint', 'uglify', 'watch']);
 }
