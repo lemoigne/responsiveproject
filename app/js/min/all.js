@@ -1,1 +1,1 @@
-$(document).foundation();
+$(document).foundation(),$(document).ready(function(){$(".actionMenu").bind("click",function(a){a.preventDefault();var b=$("#menu");b.hasClass("active")?b.removeClass("active"):b.addClass("active")})});

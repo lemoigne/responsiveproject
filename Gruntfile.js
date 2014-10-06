@@ -7,7 +7,7 @@ module.exports = function (grunt) {
 
         sass: {
             options: {
-                includePaths: ['bower_components/foundation/scss']
+                includePaths: ['app/bower_components/foundation/scss']
             },
             dist: {
                 options: {
@@ -48,14 +48,13 @@ module.exports = function (grunt) {
                 tasks: ['jshint', 'uglify'],
                 options: {
                     spawn: false,
-                    livereload: true
                 }
             },
 
             images: {
               files: 'app/images/*.png',
                 options: {
-                    livereload: true
+                    spawn: false,
                 }
             },
 
@@ -65,6 +64,13 @@ module.exports = function (grunt) {
                 options: {
                     spawn: false,
                     livereload: true
+                }
+            },
+
+            html: {
+                files: 'app/*.html',
+                options: {
+                    spawn: false
                 }
             }
         },
