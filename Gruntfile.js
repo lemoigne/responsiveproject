@@ -19,7 +19,6 @@ module.exports = function (grunt) {
             }
         },
 
-
         connect: {
             server: {
                 options: {
@@ -48,6 +47,7 @@ module.exports = function (grunt) {
                 tasks: ['jshint', 'uglify'],
                 options: {
                     spawn: false,
+                    livereload: true
                 }
             },
 
@@ -55,6 +55,7 @@ module.exports = function (grunt) {
               files: 'app/images/*.png',
                 options: {
                     spawn: false,
+                    livereload: true
                 }
             },
 
@@ -70,7 +71,8 @@ module.exports = function (grunt) {
             html: {
                 files: 'app/*.html',
                 options: {
-                    spawn: false
+                    spawn: false,
+                    livereload: true
                 }
             }
         },
@@ -90,7 +92,6 @@ module.exports = function (grunt) {
     });
 
 
-    // Creates the `server` task
     grunt.registerTask('serve', [
         'connect',
         'watch'
