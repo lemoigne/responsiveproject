@@ -21,7 +21,7 @@
     }
 
     .edito {
-        .columns {
+        .small-4 {
             @include grid-column($collapse: true);
         }
     }
