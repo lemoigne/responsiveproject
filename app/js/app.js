@@ -6,12 +6,12 @@ $(document).ready(function(){
     //Gestion ouverture menu
     $(".actionMenu").bind("click", function(e){
         e.preventDefault();
-        var menu = $("#menu");
+        var menu = $("body");
 
-        if (menu.hasClass("active")) {
-            menu.removeClass("active");
+        if (menu.hasClass("activeMenu")) {
+            menu.removeClass("activeMenu");
         } else {
-            menu.addClass("active");
+            menu.addClass("activeMenu");
         }
 
     });
