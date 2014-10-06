@@ -1,0 +1,28 @@
+/*
+    HOME
+============*/
+
+.edito {
+    margin-top: 300px;
+    padding-top: 20px;
+    background: $white;
+    position: relative;
+
+    p {
+        word-wrap: break-word;
+    }
+
+}
+
+@media #{$small-only} {
+
+    header {
+        background: $color_basic4;
+    }
+
+    .edito {
+        .columns {
+            @include grid-column($collapse: true);
+        }
+    }
+}

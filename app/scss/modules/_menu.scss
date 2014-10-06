@@ -1,6 +1,6 @@
 .menu {
     width: 200px;
-    background: #2c3140;
+    background: $color_basic3;
     position: fixed;
     top: 0;
     left: -200px;
@@ -15,6 +15,13 @@
 
    li {
        list-style: none;
+
+       a {
+           color: $white;
+           &:hover {
+               text-decoration: underline;
+           }
+       }
    }
 
    .actionMenu {
@@ -22,13 +29,9 @@
        position: absolute;
        top: 0;
        right: -50px;
-       background: url("../images/menu.png") no-repeat 0 0;
+       background: url("../../images/menu.png") no-repeat 0 0;
        width: 50px; height: 50px;
 
    }
 
-}
-
-body {
-    background: green !important;
 }
