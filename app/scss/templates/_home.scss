@@ -16,10 +16,6 @@
 
 @media #{$small-only} {
 
-    header {
-        background: $color_basic4;
-    }
-
     .edito {
         .small-4 {
             @include grid-column($collapse: true);

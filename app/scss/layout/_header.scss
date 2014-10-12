@@ -9,3 +9,11 @@ header {
     top: 0;
     width: 100%;
 }
+
+@media #{$small-only} {
+
+    header {
+        background: $color_basic4;
+    }
+
+}
